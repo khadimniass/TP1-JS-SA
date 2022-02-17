@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GENERATEUR DE MOT DE PASS</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <form action="#" method="post">
+            <div class="form-control">
+                <label for="nombre">Longueur du password</label>
+                <input class="nombre" id="nombre" type="text" name="nombre">
+            </div>
+
+            <div class="form-control">
+                <label for="majuscules">Contient des Lettres Majuscules</label>
+                <input type="checkbox" name="majuscules" id="majuscules">
+            </div>
+            <div class="form-control">
+                <label for="minuscules">Contient des Lettres Minuscules</label>
+                <input type="checkbox" name="minuscules" id="minuscules">
+            </div>
+            <div class="form-control">
+                <label for="nbm">Contient des Nombres </label>
+                <input type="checkbox" name="nbm" id="nbm">
+            </div>
+            <div class="form-control">
+                <label for="special">Contient des Caractères Spéciaux</label>
+                <input type="checkbox" id="special" name="special">
+            </div>
+
+            <input class="btn" type="submit" value="Generer Le Mot de Pass">
+        </form>
+    </div>
+    <script src="js/scrypt.js"></script>
+</body>
+
+</html>

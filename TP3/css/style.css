@@ -1,0 +1,24 @@
+*{
+    text-align: center;
+    box-sizing: border-box;
+}
+.container{
+    display: flex;
+    width: 300px;
+    border: 1px solid black;
+    height: 200px;
+}
+.container div{
+display: flex;
+justify-content: space-between;
+}
+form{
+    width: 100%;
+    height: 100%;
+}
+.nombre{ /*input number*/
+    width: 30px;    
+}
+.btn{
+    width: 100%;
+}
