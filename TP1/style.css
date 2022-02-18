@@ -6,7 +6,7 @@ body{
   display: flex;
   justify-content: end;
 }
-button {
+#ajouter {
   text-decoration: none;
   width: 95px;
   height: 25px;
@@ -16,6 +16,7 @@ button {
   background-color: green;
   border-radius: 8px;
   margin-top: 2%;
+  color: #fff;
 }
 .textarea-items {
   /* container de tous les texteare */
@@ -26,6 +27,10 @@ button {
 }
 textarea {
   width: 98%;
+  /* max-width: ;
+  min-width: none;
+  max-height: ;
+  min-height: ; */
 }
 
 .header {
@@ -40,7 +45,14 @@ textarea {
 .header img {
   cursor: pointer;
   background-color: #fff;
+  margin-left: 0%;
 }
 .header button{
-  width: 1%;
+  width: 30px;
+  padding-right: 0;
+  border: none;
+  background-color: #28b463;
+}
+.header-area{
+  width: fit-content;
 }
