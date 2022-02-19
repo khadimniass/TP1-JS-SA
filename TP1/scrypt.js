@@ -1,10 +1,22 @@
 //initiatlisation
 const btnajouter = document.querySelector("#ajouter");
 const sorti = document.querySelector(".textarea-items");
-const btndelete = document.querySelector("#corbeille");
-const btnedit = document.querySelector("#edit");
+
+
+
+const toggle=document.querySelector('.header-area');
+
 //
-function createur() {
+function createur(){
+  // const btndelete = document.querySelector("#corbeille");
+  // const btnedit = document.querySelector("#edit");
+
+/*   var btndelete=document.createElement('button');
+  btndelete.id="corbeille";
+
+  var btnedit=document.createElement('button');
+  btnedit.id="edit"; */
+
   var grandiv = document.createElement("div");
   grandiv.className = "header-area";
   var mydivh = document.createElement("div");
@@ -39,20 +51,28 @@ function createur() {
   grandiv.appendChild(divitem);
   sorti.appendChild(grandiv);
 
+
   //confirmer avant d'effacer
   btncorb.addEventListener("click", function () {
-    btncorb.parentNode.parentNode.remove();
+    if (confirm('veux tu vraiment effacer ?')) {
+      btncorb.parentNode.parentNode.remove();
+    }
   });
-
+//edit
   btnedit.addEventListener("click", function () {
+    mytextarea.focus();
     mytextarea.toggleAttribute('disabled');
   });
 }
 
-
-
-
 //
 btnajouter.addEventListener("click", function (e) {
   createur();
+});
+
+
+//evenment db
+toggle.addEventListener('dblclick',function(){
+  alert('dbclick even');
+  // toggle.classList.toggle('hiden');
 });

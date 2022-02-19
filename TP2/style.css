@@ -25,13 +25,20 @@ body{
 .btn button{
     width: 50px;
     margin: 1%;
-}
+}  
 .droite{
     width: 35%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.paragraph{
-    
+.paragraph p{
+    width: 100%;
+    cursor: pointer;
 }
+.paragraph p:hover{
+    color: #fff;
+    background-color: blue;
+    cursor: pointer;
+}
+
