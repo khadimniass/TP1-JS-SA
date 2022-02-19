@@ -25,19 +25,13 @@ body{
   display: grid;
   grid-template-columns: repeat(auto-fill, 200px);
 }
-textarea {
-  width: 98%;
-  /* max-width: ;
-  min-width: none;
-  max-height: ;
-  min-height: ; */
-}
 
 .header {
   display: flex;
   justify-content: end;
   background-color: #28b463;
-  width: 100%;
+  width: 90%;
+  cursor: pointer;
 }
 .header div{
     width: 15px;
@@ -55,4 +49,20 @@ textarea {
 }
 .header-area{
   width: fit-content;
+}
+
+textarea {
+  width: 97%;
+  /**/
+  transform: scale(.9);
+  transform-origin: 0 0;
+  transition: transform 1s;
+}
+.d{
+  transform: scale(.9);
+  transform-origin: 0 0;
+  transition: transform 1s;
+
+  visibility: hidden;
+  transform: scale(1.3);
 }

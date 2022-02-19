@@ -2,20 +2,12 @@
 const btnajouter = document.querySelector("#ajouter");
 const sorti = document.querySelector(".textarea-items");
 
-
-
-const toggle=document.querySelector('.header-area');
+//const toggle = document.querySelector(".header-area");
 
 //
-function createur(){
-  // const btndelete = document.querySelector("#corbeille");
-  // const btnedit = document.querySelector("#edit");
+function createur() {
 
-/*   var btndelete=document.createElement('button');
-  btndelete.id="corbeille";
 
-  var btnedit=document.createElement('button');
-  btnedit.id="edit"; */
 
   var grandiv = document.createElement("div");
   grandiv.className = "header-area";
@@ -40,7 +32,8 @@ function createur(){
 
   mytextarea = document.createElement("textarea");
   // mytextarea.setAttribute('rows','10');
-  mytextarea.rows = "10";
+  mytextarea.rows = "10"
+  mytextarea.setAttribute('placeholder','double click to see');
   var divitem = document.createElement("div");
   divitem.className = "item";
   mydivh.appendChild(btnedit);
@@ -52,27 +45,30 @@ function createur(){
   sorti.appendChild(grandiv);
 
 
-  //confirmer avant d'effacer
+
+
+
+  // const btndelete = document.querySelector("#corbeille");
+  // const btnedit = document.querySelector("#edit");
+  /** mes événement */
+  //delete
   btncorb.addEventListener("click", function () {
-    if (confirm('veux tu vraiment effacer ?')) {
+    if (confirm("veux tu vraiment effacer ?")) {
       btncorb.parentNode.parentNode.remove();
     }
   });
-//edit
+  //edit
   btnedit.addEventListener("click", function () {
-    mytextarea.focus();
-    mytextarea.toggleAttribute('disabled');
+    mytextarea.toggleAttribute("disabled");
+  });
+
+  //evenment db to move textare
+    grandiv.addEventListener("dblclick", function () {
+    mytextarea.classList.toggle("d");
   });
 }
 
 //
 btnajouter.addEventListener("click", function (e) {
   createur();
-});
-
-
-//evenment db
-toggle.addEventListener('dblclick',function(){
-  alert('dbclick even');
-  // toggle.classList.toggle('hiden');
 });
