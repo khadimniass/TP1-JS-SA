@@ -63,7 +63,9 @@ function createur() {
   });
 
   //evenment db to move textare
-    grandiv.addEventListener("dblclick", function () {
+  grandiv.addEventListener("dblclick", function () {
+    // mytextarea.removeAttribute('rows');
+    // mytextarea.rows="0"
     mytextarea.classList.toggle("d");
   });
 }

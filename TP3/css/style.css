@@ -57,8 +57,11 @@ form{
 .copy{
     cursor: pointer;
     flex: 1;
+    visibility: hidden;
 }
-
+.copy.access{
+    visibility: visible;
+}
 .pwd{
     flex: 1;
     display: flex;
@@ -69,6 +72,7 @@ form{
 .pwd-2{
     flex: 1;
     color: #fff;
+    font-size: 1rem;
 }
 .pwd-3{
     flex: 1;
