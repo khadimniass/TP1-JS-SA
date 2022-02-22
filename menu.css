@@ -31,6 +31,9 @@
   flex: 1;
   background-color: #4A235A;
 }
+.tp3 a {
+  color: white;
+}
 .tp4 {
   flex: 1;
   background-color: #829e;

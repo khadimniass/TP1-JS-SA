@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TP 4</title>
+    <link rel="icon" href="../SA.jpg" type="image">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../menu.css">
 </head>
@@ -38,43 +39,40 @@
     </div>
 
         <div class="container">
-            <div id="question">
-                <h1 id="">Quel est le Meilleur Language de Programmation en 2022</h1>
+            <div id="questions">
+                <h1 id="question">Quel est le Meilleur Language de Programmation en 2022</h1>
             </div>
-        <form action="">
+        <div class="form">
             <div class="parent-item">
                 <div class="item-form">
-                    <label for="java">Java</label>
-                    <input type="radio" name="java" id="java">
+                    <label class="question-place" for="a" id="qa">a</label>
+                    <input type="radio" id="a">
+                </div>
+ 
+                <div class="item-form">
+                    <label class="question-place" for="b" id="qb">b</label>
+                    <input type="radio" id="b">
+                </div>
+ 
+                <div class="item-form">
+                    <label class="question-place" for="c" id="qc">c</label>
+                    <input type="radio" id="c">
                 </div>
 
                 <div class="item-form">
-                    <label for="C">C</label>
-                    <input type="radio" name="C" id="C">
-                </div>
-
-                <div class="item-form">
-                    <label for="Python">Python</label>
-                    <input type="radio" name="Python" id="Python">
-                </div>
-
-                <div class="item-form">
-                    <label for="JavaScrypt">JavaScrypt</label>
-                    <input type="radio" name="JavaScrypt" id="JavaScrypt">
+                    <label class="question-place" for="d" id="qd">d</label>
+                    <input type="radio" id="d">
                 </div>
             </div>
             <input type="submit" class="Suivant" value="Suivant">
-        </form>
+        </div>
     </div>
 
-
-
-    <!-- <div class="containt-score">
-        <h2>vous avez trouvez 1/4 de questions</h2>
+    <div class="containt-score">
+        <h2>vous avez trouvez <span class="result">1/4</span> de questions</h2>
         <button id="ReJouer">ReJouer</button>
-    </div> -->
+    </div>
 
     <script src="scrypt.js"></script>
 </body>
-
 </html>

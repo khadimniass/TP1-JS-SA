@@ -1,9 +1,13 @@
 const startButton = document.getElementById("startButton");
+const btbSuivant = document.querySelector(".Suivant");
 const gpcontQuest = document.querySelector(".container");
-const Contquest = document.getElementById("question");
-let qN;
-
-QUESTIONS = [
+const Contquest = document.getElementById("questions");
+const question = document.getElementById("question");
+const containtscore = document.querySelector(".containt-score");
+let questionPlaceS = document.querySelector(".question-place"); //liste des reponses eventuels
+const resultat=document.querySelector('.containt-score');
+const nbpoint=document.querySelector('.result');
+let QUESTIONS = [
   {
     question: "Quel est le MeilleurLanguage de Programmation en 2022",
     a: "Java",
@@ -14,7 +18,7 @@ QUESTIONS = [
   },
   {
     question:
-      "Je suis un langage utilisé principalement en mathématiques et pour les sciences :",
+    "Je suis un langage utilisé principalement en mathématiques et pour les sciences :",
     a: "Fortran",
     b: "AppleScript",
     c: "PHP",
@@ -47,8 +51,8 @@ QUESTIONS = [
     correct: "c",
   },
   {
-    question:
-      "Parmis ces propositions laquelle n'est pas un langage de programmation ?",
+    question: 
+    "Parmis ces propositions laquelle n'est pas un langage de programmation ?",
     a: "Caml",
     b: "RedHat",
     c: "Eiffel",
@@ -56,30 +60,58 @@ QUESTIONS = [
     correct: "b",
   },
 ];
-
+//button de démarrage du jeu
 function startGame() {
   startButton.classList.add("hiden");
-  qN = 0;
-  while (Contquest.firstChild) {
-    Contquest.removeChild(Contquest.firstChild);
-  }
- // showQuestion(QUESTIONS[qN]);
-}
-// answers=correct
-function showQuestion(question) {
-  qN.innerText = question.question;
-  question.answers.forEach((answer) => {
-    const button = document.createElement("button");
-    button.innerText = answer.text;
-    button.classList.add("btn");
-    if (answer.correct) {
-      button.dataset.correct = answer.correct;
-    }
-    button.addEventListener("click", selectAnswer);
-    answerButtons.appendChild(button);
-  });
+  gpcontQuest.classList.add("display");
 }
 
-startButton.addEventListener("click", function () {
+//generateur de questions
+function getQuestion() {
+  let Q;
+  questionPlaceS.forEach((item) => {
+    if (item.checked) {
+      Q = item.id;
+    }
+  });
+  return Q;
+}
+
+function selectQuestion() {
+  questionPlaceS.forEach((item) => {
+    item.checked = false;
+  });
+}
+let cpt=0;
+let score=0;
+function rafrechirJeu() {
+  selectQuestion()
+  const questionEncour = QUESTIONS[cpt];
+  question.innerHTML=questionEncour.question;
+  questionPlaceS.innerHTML=questionEncour.a;
+  questionPlaceS.innerHTML=questionEncour.b;
+  questionPlaceS.innerHTML=questionEncour.c;
+  questionPlaceS.innerHTML=questionEncour.d;  
+}
+/**commencer le jeu*/
+startButton.addEventListener('click',function(){
   startGame();
+});
+
+btbSuivant.addEventListener("click", function () {
+  const reponse=getQuestion();
+  
+  if (reponse) {
+    if (reponse==QUESTIONS.correct) {
+      score++; 
+    }
+    cpt++;
+    if(cpt < QUESTIONS.length) {
+      rafrechirJeu();
+    }else{
+      //affichage score : vous avez score/QUESTIONS.lenght
+      resultat.classList.add("display");
+      nbpoint.innerHTML=score / QUESTIONS.length;
+    }
+  }
 });

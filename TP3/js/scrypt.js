@@ -1,4 +1,5 @@
 const placepassword = document.querySelector(".pwd-2"); //afficher apres generation
+const Ppwd=document.querySelector('#Ppwd');
 const btnGenrator = document.querySelector(".btn");
 const form = document.getElementById("form");
 const btncopy = document.querySelector(".copy");
@@ -27,10 +28,11 @@ function getSpecial() {
   arrayChar = Array.from(special);
   return arrayChar[Math.floor(Math.random() * arrayChar.length)];
 }
-
+let getLowers="abcdefghijklmnopqrstuvwxyz".split("");
 function genPwd() {
   var pwd = [].concat(
-    Cminuscule.checked ? getLower() : [],
+    // Cminuscule.checked ? getLower() : [],
+    Cminuscule.checked ? getLowers:[],
     Cmajuscule.checked ? getUpper() : [],
     Cnombre.checked ? getNumber() : [],
     Cspecial.checked ? getSpecial() : []
@@ -45,11 +47,12 @@ function genPwd() {
   // for (var i of lenght) {
   for (let i = 0; i < lenP; i++) {
     newP += pwd[Math.floor(Math.random() * pwd.length)];
+
   }
   if (pwd.length === 0) {
     return (placepassword.innerHTML ="<span style='color:red;'>choisit le format</span>");
   }
-  return newP;
+  return newP; //password generated
 }
 //evenement de génération de pwd
 form.addEventListener("submit", function (e) {
@@ -63,8 +66,8 @@ btncopy.addEventListener("click", function () {
 
 //fonction copie
 function copy() {
-  placepassword.select;
-  // placepassword.setSelectionRange(0,99999);
+  placepassword.select();
+  //  placepassword.setSelectionRange(0,99999);
   if (document.execCommand("copy")) {
 
     outcopy.innerHTML ="<span style='color:green'>copié avec success ...</span>";

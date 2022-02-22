@@ -6,10 +6,7 @@ const sorti = document.querySelector(".textarea-items");
 
 //
 function createur() {
-
-
-
-  var grandiv = document.createElement("div");
+  var grandiv = document.createElement("div"); //iem
   grandiv.className = "header-area";
   var mydivh = document.createElement("div");
   mydivh.className = "header";
@@ -30,7 +27,7 @@ function createur() {
   var btncorb = document.createElement("button");
   btncorb.appendChild(imgecorbeille);
 
-  mytextarea = document.createElement("textarea");
+  var mytextarea = document.createElement("textarea");
   // mytextarea.setAttribute('rows','10');
   mytextarea.rows = "10"
   mytextarea.setAttribute('placeholder','double click to see');
@@ -40,18 +37,9 @@ function createur() {
   mydivh.appendChild(btncorb);
   grandiv.appendChild(mydivh);
   divitem.appendChild(mytextarea);
-  grandiv.appendChild(mydivh);
   grandiv.appendChild(divitem);
   sorti.appendChild(grandiv);
 
-
-
-
-
-  // const btndelete = document.querySelector("#corbeille");
-  // const btnedit = document.querySelector("#edit");
-  /** mes événement */
-  //delete
   btncorb.addEventListener("click", function () {
     if (confirm("veux tu vraiment effacer ?")) {
       btncorb.parentNode.parentNode.remove();
