@@ -1,21 +1,22 @@
 const startButton = document.getElementById("startButton");
+const btnstart=document.createElement('btnstart'); //c'est la class globale
 const btbSuivant = document.querySelector(".Suivant");
 const gpcontQuest = document.querySelector(".container");
 const Contquest = document.getElementById("questions");
 const question = document.getElementById("question");
 const containtscore = document.querySelector(".containt-score");
-let questionPlaceS = document.querySelector(".question-place"); //liste des reponses eventuels
+let questionPlaceS = document.querySelectorAll(".question-place"); //liste des reponses eventuels
 const resultat=document.querySelector('.containt-score');
 const nbpoint=document.querySelector('.result');
+const repA=document.getElementById("rep-a");
+const repB=document.getElementById("rep-b");
+const repC=document.getElementById("rep-c");
+const repD=document.getElementById("rep-d");
+
+let cpt=0;
+let score=0;
+
 let QUESTIONS = [
-  {
-    question: "Quel est le MeilleurLanguage de Programmation en 2022",
-    a: "Java",
-    b: "C",
-    c: "Python",
-    d: "JavaScript",
-    correct: "d",
-  },
   {
     question:
     "Je suis un langage utilisé principalement en mathématiques et pour les sciences :",
@@ -24,6 +25,14 @@ let QUESTIONS = [
     c: "PHP",
     d: "java",
     correct: "a",
+  },
+  {
+    question: "Quel est le MeilleurLanguage de Programmation en 2022",
+    a: "Java",
+    b: "C",
+    c: "Python",
+    d: "JavaScript",
+    correct: "d",
   },
   {
     question: "quelle balise permet d'aller à la ligne",
@@ -60,50 +69,50 @@ let QUESTIONS = [
     correct: "b",
   },
 ];
-//button de démarrage du jeu
-function startGame() {
-  startButton.classList.add("hiden");
-  gpcontQuest.classList.add("display");
-}
 
-//generateur de questions
+// //button de démarrage du jeu
+// function startGame() {
+//   // btnstart.classList.add("hiden");
+//   btnstart.className="hiden";
+//   gpcontQuest.classList.add("display");
+// }
+
+//generateur de reponses éventuelles a,b,c,d
 function getQuestion() {
-  let Q;
-  questionPlaceS.forEach((item) => {
+  let reponse;
+  questionPlaceS.forEach(item => {
     if (item.checked) {
-      Q = item.id;
+      reponse = item.id;
     }
   });
-  return Q;
+  return reponse;
+}
+function selectQuestion() {
+  questionPlaceS.forEach(item => item.checked = false);
 }
 
-function selectQuestion() {
-  questionPlaceS.forEach((item) => {
-    item.checked = false;
-  });
-}
-let cpt=0;
-let score=0;
 function rafrechirJeu() {
   selectQuestion()
   const questionEncour = QUESTIONS[cpt];
   question.innerHTML=questionEncour.question;
-  questionPlaceS.innerHTML=questionEncour.a;
-  questionPlaceS.innerHTML=questionEncour.b;
-  questionPlaceS.innerHTML=questionEncour.c;
-  questionPlaceS.innerHTML=questionEncour.d;  
-}
-/**commencer le jeu*/
-startButton.addEventListener('click',function(){
-  startGame();
-});
 
-btbSuivant.addEventListener("click", function () {
+  repA.innerHTML=questionEncour.a;
+  repB.innerHTML=questionEncour.b;
+  repC.innerHTML=questionEncour.c;
+  repD.innerHTML=questionEncour.d;  
+}
+
+/**commencer le jeu*/
+// startButton.addEventListener('click',function(){
+//   startGame();
+// });
+rafrechirJeu();
+btbSuivant.addEventListener("click", () => {
   const reponse=getQuestion();
-  
+
   if (reponse) {
-    if (reponse==QUESTIONS.correct) {
-      score++; 
+    if (reponse===QUESTIONS[cpt].correct) {
+      score++;
     }
     cpt++;
     if(cpt < QUESTIONS.length) {

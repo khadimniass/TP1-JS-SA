@@ -66,3 +66,9 @@ textarea {
   visibility: hidden;
   transform: scale(1.3);
 }
+
+
+header.active{
+  cursor: move;
+  user-select: none;
+}

@@ -56,6 +56,25 @@ function createur() {
     // mytextarea.rows="0"
     mytextarea.classList.toggle("d");
   });
+
+//deplacer un card sur le document
+  function onDrag({movementX, movementY}){
+    let getStyle = window.getComputedStyle(mydivh);
+    let leftVal = parseInt(getStyle.left);
+    let topVal = parseInt(getStyle.top);
+    mydivh.style.left = `${leftVal + movementX}px`;
+    mydivh.style.top = `${topVal + movementY}px`;
+  }
+mydivh.addEventListener('mousedown',()=>{
+  mydivh.classList.add('active'); //to add in css
+  mydivh.addEventListener('mousemove',onDrag);
+})
+
+document.addEventListener("mouseup", ()=>{
+  mydivh.classList.remove("active");
+  mydivh.removeEventListener("mousemove", onDrag);
+});
+
 }
 
 //

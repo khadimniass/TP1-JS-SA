@@ -40,9 +40,7 @@ body{
     justify-content: center;
 }
 .paragraph p{
-    width: 100%;
     cursor: pointer;
-
 }
 .paragraph p:hover{
     cursor: pointer;
@@ -52,7 +50,10 @@ body{
 .actived{
     color: #fff;
     background-color: blue;
+    border-radius: 5px;
     cursor: pointer;
+    scale: 1.5;
+    transition: 2s;
 }
 .titlle{
     display: flex;

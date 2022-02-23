@@ -55,26 +55,28 @@ function genPwd() {
   return newP; //password generated
 }
 //evenement de génération de pwd
+var pwdgerated="";
 form.addEventListener("submit", function (e) {
   e.preventDefault();
-  placepassword.innerHTML = genPwd();
+  pwdgerated =genPwd();
+  placepassword.innerHTML = pwdgerated;
   btncopy.classList.add('access');
 });
 btncopy.addEventListener("click", function () {
-  copy();
+  copy(pwdgerated);
+
 });
 
 //fonction copie
-function copy() {
-  placepassword.select();
-  //  placepassword.setSelectionRange(0,99999);
-  if (document.execCommand("copy")) {
+function copy(tocopy) {
+  console.log(tocopy);
+  const textarea=document.createElement('textarea');
+  textarea.value=tocopy; //tocopy=pwd;
+  textarea.select();
+  textarea.setSelectionRange(0,99999);
 
-    outcopy.innerHTML ="<span style='color:green'>copié avec success ...</span>";
+  if(document.execCommand("copy")){
+  outcopy.innerHTML ="<span style='color:green'>copié avec success ...</span>";
   }
-  setTimeout(() => {
-    generateButton.innerHTML = "Générer mot de passe"
-  },
-   2000);
-
+  textarea.remove();
 }
